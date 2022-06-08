@@ -138,3 +138,77 @@ Créer le fichier de config de babel
   ]
 }
 ```
+
+## configure webpack pour faire dire d'utiliser babel
+
+Creer un fichier de config de webpack `webpack.config.js` à la racine du projet.
+
+Avec la conf suivante, on dit à webpack que tous les fichier .js doivent passer dans le babel-loader !
+
+```
+module.exports = {
+  mode: "development",
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: "babel-loader",
+      },
+    ],
+  }
+};
+```
+
+## installer le serveur de dev de webpack
+
+Parce qu'on apas envie de refaire un build à la main et recharger la page à chaque fois qu'on fait une modif
+
+On tape la commande 
+```
+yarn add webpack-dev-server --dev
+```
+
+### dire à webpack qu'il utilise ce serveur de dev
+
+on ajoute devServer dans le fichier de config de webpack
+
+```
+module.exports = {
+    mode: 'development',
+    module: {
+      rules: [
+        { 
+          test: /\.js$/, 
+          use: 'babel-loader' 
+        }
+      ]
+    },
+    devServer: {
+        open: true,
+        static: 'dist'
+    },
+};
+```
+
+## lancer le serveur de dev
+
+On ajoute un script dans le package.json pour faire le serve
+```
+"scripts": {
+  "start": "./node_modules/.bin/webpack serve"
+},
+```
+
+on lance le script avec `yarn start`
+=> si on change du code, ça rebuild tout seul !! on est en hot reload 🥳
+
+## Installer React et React-DOM 
+
+avec yarn, on tape la commande : 
+
+```
+yarn add react react-dom
+```
+
+
+
