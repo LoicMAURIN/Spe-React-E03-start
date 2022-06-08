@@ -1,5 +1,3 @@
-# Spe-React-E03-start
-
 # REACT START
 
 ## Init de yarn
@@ -116,4 +114,27 @@ On peut écrire des raccourcis / alias pour des commandes
     "build": "webpack --mode production",
     "dev": "webpack --mode development"
   },
+```
+
+## installer le loader babel pour webapack
+
+Taper la commande :
+```
+yarn add --dev @babel/core @babel/preset-env @babel/preset-react babel-loader
+```
+
+- @babel/core : le coeur de Babel
+- @babel/preset-env : le dictionnaire JS moderne
+- @babel/preset-react : le dictionnaire de JSX
+- babel-loader : passerelle entre babel et webpack pour que webpack puisse faire passer les fichier via babel
+
+Créer le fichier de config de babel 
+
+```.babelrc
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ]
+}
 ```

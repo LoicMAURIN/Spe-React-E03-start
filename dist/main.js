@@ -1,1 +1,1 @@
-console.log("Happy birthday Tony");
+console.log("Happy birthday ".concat("Tony"));
