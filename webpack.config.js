@@ -7,5 +7,9 @@ module.exports = {
           use: "babel-loader",
         },
       ],
-    }
+    },
+    devServer: {
+      open: true,
+      static: 'dist'
+    },
   };
